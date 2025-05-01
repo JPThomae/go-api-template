@@ -8,7 +8,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-
 func getEvents(context *gin.Context) {
 	events, err := models.GetAllEvents()
 	if err != nil {
@@ -51,7 +50,7 @@ func createEvent(context *gin.Context) {
 	event.UserID = context.GetInt64("userId")
 
 	err = event.Save()
-	
+
 	if err != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"error": "could not save event"})
 		return
@@ -82,7 +81,7 @@ func updateEvent(context *gin.Context) {
 		context.JSON(http.StatusForbidden, gin.H{"error": "you do not have permission to update this event"})
 		return
 	}
-	
+
 	var updatedEvent models.Event
 	err = context.ShouldBindJSON(&updatedEvent)
 	if err != nil {
@@ -91,7 +90,7 @@ func updateEvent(context *gin.Context) {
 	}
 
 	updatedEvent.Id = event.Id // Keep the same ID
-	event.UserID = 1 // Assuming a default user ID for simplicity
+	event.UserID = 1           // Assuming a default user ID for simplicity
 
 	err = updatedEvent.UpdateEventById()
 	if err != nil {
@@ -123,7 +122,7 @@ func deleteEvent(context *gin.Context) {
 	}
 
 	if event.UserID != userId {
-		context.JSON(http.StatusForbidden, gin.H{"error": "you do not have permission to update this event"})
+		context.JSON(http.StatusForbidden, gin.H{"error": "you do not have permission to delete this event"})
 		return
 	}
 
@@ -140,5 +139,5 @@ func registerForEvent(context *gin.Context) {
 }
 
 func unregisterFromEvent(context *gin.Context) {
-	
+
 }
