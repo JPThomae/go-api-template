@@ -1,0 +1,9 @@
+PUT http://localhost:8080/events/1
+Content-Type: application/json
+
+{
+  "name": "big old poop bag",
+  "description": "huge bag of poop",
+  "location": "pooptown",
+  "datetime": "2025-04-24T11:12:29Z"
+}

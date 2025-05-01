@@ -1,0 +1,10 @@
+POST http://localhost:8080/events
+Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN3ZWV0bWVhdEBkYWRkeTEzMTMuY29tIiwiZXhwIjoxNzQ2MDQ5NjYyLCJ1c2VySWQiOjR9.hy_nkJf_uuy1jWPHcnDgOCWEWmsNR_7re0mkdsv9XO8
+
+{
+  "name": "Poop Day2",
+  "description": "Poop day party!",
+  "location": "Poop City",
+  "datetime": "2025-04-24T11:12:29Z"
+}
